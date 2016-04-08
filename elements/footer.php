@@ -1,0 +1,1 @@
+<div class="bottom" align="center">© Copyright 2011-2012. All rights are Reserved.</div>
