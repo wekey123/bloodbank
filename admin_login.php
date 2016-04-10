@@ -1,3 +1,18 @@
+<?php
+include("db.php"); 
+if(!empty($_POST)){
+	@extract($_POST);
+	if($uname=='admin' && $pass=='admin')
+	{
+	$_SESSION['Admin']['id'] = 1;
+	$_SESSION['Admin']['uname'] = $uname;
+	$_SESSION['Admin']['name'] = $pass;
+	header ('location: admin.php'); exit;
+	}else{
+		$message = 'Username or Password is Wrong';
+	}
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,11 +24,16 @@
 <div class="content">
 <?php include 'elements/leftmenu.php'; ?>
 <div id="apDiv1">
-<form id="form1" name="form1" method="post" action="ad_log_process.php">
+<form id="form1" name="form1" method="post" action="">
   <table width="461" height="179" class="tbl_form">
     <tr>
-      
-      </tr>
+      <td colspan="4"><div align="center" style="color:red;">
+	     <?php 
+		   	if(!empty($message)){ echo $message; }
+		 ?> 
+       </div>
+      </td>
+    </tr>
     <tr>
       <td colspan="3" class="cptn">Admin Login</td>
       </tr>
@@ -25,7 +45,7 @@
       <td class="field">:</td>
       <td>
         <div align="center">
-          <input name="uname" type="text" id="textfield4" size="35" />      
+          <input name="uname" type="text" id="textfield4" size="35" value="<?php if(isset($uname)) echo $uname; ?>"/>      
         </div></td>
     </tr>
     <tr>
@@ -53,7 +73,7 @@
 </div>
 <br /><br /><br /><br /><br />
 </div>
-<?php //include 'elements/rightmenu.php'; ?>
+<?php include 'elements/rightmenu.php'; ?>
 <?php include 'elements/footer.php'; ?>
 </body>
 </html>

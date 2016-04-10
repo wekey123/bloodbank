@@ -1,59 +1,19 @@
+<?php 
+include "elements/member_check_session.php";
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>E-Blood Donation Forum | Member Profile</title>
 <link href="Style.css" rel="stylesheet" type="text/css" />
-
-<SCRIPT type="text/javascript">
-    window.history.forward();
-    function noBack() { window.history.forward(); }
-</SCRIPT>
-</HEAD>
-<BODY onload="noBack();"
-    onpageshow="if (event.persisted) noBack();" onunload="">
-
-
-<?php
-include("db.php"); 
-
-$uname=$_POST['uname'];
-$pass=$_POST['pass'];
-
-if ($uname==""  or $pass=="")
-{
-echo "All fields must be entered, hit back button and re-enter information";
-}
-else
-{
-$sql="SELECT * FROM member_reg WHERE uname='".$uname."' and pass='".$pass."'";
- $result=mysql_query($sql);
-$count=mysql_num_rows($result);
-if($count==1){}
-
-else
-{
-
-header('location: member_login.php');
-}
-}
-?>
-
+</head>
+<body>
 <div class="header">
 <div class="menu"> <div class="top">&nbsp;&nbsp;<a href="index.php">Home</a> &gt; Member Profile</div>
 <br /><br /><br /><br /><br /><br />
-                        <div id="tabsE">
-                                <ul>
-                                        <!-- CSS Tabs -->
-<li><a href="member.php"><span>Profile</span></a></li>
-<li><a href="member_search.php"><span>Search Donor</span></a></li>
-<li><a href="request_blood.php"><span>Request Blood</span></a></li>
-
-<li><a href="contact_us.php"><span>Contact Us</span></a></li>
-
-                                </ul>
-    </div>
-  </div>
+<?php include 'elements/member_menu.php'; ?>
+</div>
 </div>
 <div class="content">
 <br /><br />
@@ -83,9 +43,8 @@ header('location: member_login.php');
     <tr>
       <td colspan="3" class="cptn">
 	  <?php 
-
-
-	  while($row=mysql_fetch_array($result))
+	  $result=mysqli_query($con,"SELECT * FROM member_reg WHERE id=".$member['id']);
+	  while($row=mysqli_fetch_array($result))
 	  {
 	  echo ' Hai,  &nbsp;&nbsp;'.$row['name'] ;
 	
