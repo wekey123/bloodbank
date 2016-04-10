@@ -32,7 +32,7 @@ if(!empty($_POST)){
       <td colspan="4"><div align="center" style="color:red;">
 	     <?php 
 	  		if(!empty($_GET['error'])){
-		   		if($_GET['error'] == 1) echo 'Thank You For Registration As Member.'; 
+		   		if($_GET['error'] == 1) echo 'Thank You For Registration As Member.<br/>'; 
 		    }
 		   	if(!empty($message)){ echo $message; }
 		 ?> 

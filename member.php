@@ -16,10 +16,7 @@ include "elements/member_check_session.php";
 </div>
 </div>
 <div class="content">
-<br /><br />
-<?php include 'elements/leftmenu.php'; ?>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<div id="apDiv1">
+<center>
 <form id="form1" name="form1" method="post" action="">
   <table class="tbl_form" width="461" height="160">
     <tr>      </tr>
@@ -29,7 +26,7 @@ include "elements/member_check_session.php";
 	  $result=mysqli_query($con,"SELECT * FROM member_reg WHERE id=".$member['id']);
 	  while($row=mysqli_fetch_array($result))
 	  {
-	  echo ' Hai,  &nbsp;&nbsp;'.$row['name'] ;
+	  echo 'Welcome,  &nbsp;&nbsp;'.$row['name'] ;
 	
 	  ?>      </td>
       </tr>
@@ -70,7 +67,7 @@ include "elements/member_check_session.php";
     <tr>      </tr>
   </table>
   </form>
-</div>
+</center><br/><br/>
 </div>
 <?php include 'elements/footer.php'; ?>
 </body>

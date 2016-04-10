@@ -13,7 +13,7 @@ include "elements/donor_check_session.php";
 <div class="header">
 <div class="menu"> <div class="top">&nbsp;&nbsp;<a href="index.php">Home</a> &gt; Donor Profile</div>
   <br /><br />
-  <h1 class="h" align="right">E-Blood Donation Forum&nbsp;&nbsp;</h1>
+  <h1 class="h" align="center">E-Blood Donation Forum&nbsp;&nbsp;</h1>
 <br />
      <?php include 'elements/donor_menu.php'; ?>                   
   </div>
