@@ -1,5 +1,5 @@
 <?php
-include("db.php"); 
+include("elements/session_presents.php"); 
 if(!empty($_POST)){
  @extract($_POST);
  $result=mysqli_query($con,"SELECT * FROM member_reg WHERE uname='$uname' and pass='$pass'");

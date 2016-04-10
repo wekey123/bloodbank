@@ -1,5 +1,5 @@
 <?php
-include("db.php"); 
+include("elements/session_presents.php"); 
 if(!empty($_POST)){
 	@extract($_POST);
 	$sql="SELECT * FROM donor_reg WHERE uname='".$uname."' and pass='".$pass."'";

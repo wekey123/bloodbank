@@ -17,24 +17,7 @@ include "elements/member_check_session.php";
 </div>
 <div class="content">
 <br /><br />
-<div class="link">Quik Links<br />
-  <div class="links">
-  <ul>
-  <li><a href="#"><span>About Us</span></a><br />
-    <br />
-  </li>
-<li><a href="#"><span>Tips</span></a><br />
-  <br />
-</li>
-<li><a href="#"><span>Eligibility<br />
-  <br />
-</span></a></li>
-<li><a href="#"><span>Contact Us</span></a><br />
-</li>
-</ul>
-  <p>&nbsp;</p>
-  </div>
-</div>
+<?php include 'elements/leftmenu.php'; ?>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <div id="apDiv1">
 <form id="form1" name="form1" method="post" action="">
@@ -89,7 +72,6 @@ include "elements/member_check_session.php";
   </form>
 </div>
 </div>
-<div class="bottom" align="center">© Copyright 2011-2012. All rights are Reserved.</div>
-
+<?php include 'elements/footer.php'; ?>
 </body>
 </html>

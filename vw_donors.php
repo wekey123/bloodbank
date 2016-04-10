@@ -19,9 +19,8 @@ $result=mysqli_query($con,"SELECT * FROM donor_reg");
 </div>
 </div>
 <div class="content">
-<?php //include 'elements/leftmenu.php';?>    
-
-	<h2 style="text-align:center;">Donor List</h2>
+<?php //include 'elements/leftmenu.php';?>     <br/>
+	<h2 style="text-align:center;">Donor List</h2> <br/> <br/>
     <center>
     <table style="width:80%; text-align:center;" border="1">
     <tr ><td>Sno</td><td> Name</td><td>Age</td><td>Gender</td><td>Blood Group</td><td>Last Donated Date</td><td>State</td><td>Location</td><td>Contact Number</td><td>E-Mail</td></tr>
@@ -45,6 +44,7 @@ $result=mysqli_query($con,"SELECT * FROM donor_reg");
     ?>
     </table>
 	</center>
+    <br/><br/>
 </div>
 <?php include 'elements/footer.php';?>  
 </body>

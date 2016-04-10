@@ -1,5 +1,5 @@
 <?php
-include("db.php"); 
+include("elements/session_presents.php"); 
 if(!empty($_POST)){
 	@extract($_POST);
 	if($uname=='admin' && $pass=='admin')

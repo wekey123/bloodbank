@@ -19,7 +19,8 @@ include "elements/donor_check_session.php";
   </div>
 </div>
 <div class="content">
-<?php include 'elements/leftmenu.php'; ?> <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<?php include 'elements/leftmenu.php'; ?> 
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div id="apDiv1">
 <form id="form1" name="form1" method="post" action="">
   <table class="tbl_form" width="461" height="401">

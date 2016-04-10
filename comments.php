@@ -1,58 +1,45 @@
+<?php 
+include "elements/admin_check_session.php";
+$result=mysqli_query($con,"SELECT * FROM contact");
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>E-Blood Donation Forum | Admin Profile</title>
+<title>E-Blood Donation Forum | Contact List</title>
 <link href="Style.css" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body>
 <div class="header">
-<div class="menu"> <div class="top">&nbsp;&nbsp;Home &gt; <a href="Admin.php">Admin Area</a> &gt; Comments</div>
+<div class="menu"> <div class="top">&nbsp;&nbsp;Home &gt; <a href="Admin.php">Admin Area </a>&gt; Contact List</div>
 <br /><br /><br /><br /><br /><br />
-                        <div id="tabsE">
-                                <ul>
-                                        <!-- CSS Tabs -->
-
-<li><a href="vw_donors.php"><span>View Donors</span></a></li>
-<li><a href="Admin_search.php"><span>Search Donor</span></a></li>
-<li><a href="vw_requests.php"><span>View Requests</span></a></li>
-<li><a href="comments.php"><span>Comments</span></a></li>
-
-                          </ul>
-    </div>
-  </div>
+<?php include 'elements/admin_menu.php'; ?>
+</div>
 </div>
 <div class="content">
-<br /><br />
-<div class="link">Quik Links<br />
-  <div class="links">
-  <ul>
-  <li><a href="#"><span>About Us</span></a><br />
-    <br />
-  </li>
-<li><a href="#"><span>Tips</span></a><br />
-  <br />
-</li>
-<li><a href="#"><span>Eligibility<br />
-  <br />
-</span></a></li>
-<li><a href="#"><span>Contact Us</span></a><br />
-</li>
-</ul>
-
-  </div>
+<?php //include 'elements/leftmenu.php';?>   <br/>  
+	<h2 style="text-align:center;">Contact List</h2> <br/> <br/>
+    <center>
+    <table style="width:80%; text-align:center;" border="1">
+    <tr ><td>Sno</td><td> Name</td><td>Contact Number</td><td>E-mail</td><td>Message</td></tr>
+    <?php $i =1;
+          while($row=mysqli_fetch_array($result))
+          {
+              echo '<tr>';
+			  echo '<td>'.$i.'</td>' ;
+              echo '<td>'.$row['name'].'</td>' ;
+              echo '<td>'.$row['mob_num'].'</td>' ;
+              echo '<td>'.$row['e_mail'] .'</td>';
+              echo '<td>'.$row['message'].'</td>' ;
+              echo '</tr>';
+			  $i++;
+          }
+    ?>
+    </table>
+	</center><br/><br/>
 </div>
-<br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<div id="apDiv1">
-    
-
-  <iframe src="vw_cmnt_frame.php" width="700" height="400" frameborder="0"></iframe>
-</div>
-</div>
-<div class="bottom" align="center">© Copyright 2011-2012. All rights are Reserved.</div>
-
+<?php include 'elements/footer.php';?>  
 </body>
 </html>

@@ -23,6 +23,7 @@
 .content {
 	height: auto;
 	background-color: #EBEBEB;
+	min-height:500px;
 }
 .content .link {
 	width: 160px;
@@ -60,7 +61,7 @@ h2 {
         font: bold 14px Verdana, Arial, Helvetica, sans-serif;
         color: #000;
         margin: 0px;
-        padding: 0px 0px 0px 15px;
+        padding: 40px 0px 0px 15px;
 }
 
 /*- Menu Tabs E--------------------------- */
