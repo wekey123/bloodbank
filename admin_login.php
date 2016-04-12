@@ -7,7 +7,7 @@ if(!empty($_POST)){
 	$_SESSION['Admin']['id'] = 1;
 	$_SESSION['Admin']['uname'] = $uname;
 	$_SESSION['Admin']['name'] = $pass;
-	header ('location: admin.php'); exit;
+	header ('location: vw_requests.php'); exit;
 	}else{
 		$message = 'Username or Password is Wrong';
 	}

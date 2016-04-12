@@ -19,9 +19,8 @@ include "elements/donor_check_session.php";
   </div>
 </div>
 <div class="content">
-<?php include 'elements/leftmenu.php'; ?> 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<div id="apDiv1">
+<?php //include 'elements/leftmenu.php'; ?> 
+<center>
 <form id="form1" name="form1" method="post" action="">
   <table class="tbl_form" width="461" height="401">
     <tr>      </tr>
@@ -152,7 +151,7 @@ include "elements/donor_check_session.php";
    
   </table>
   </form>
-</div>
+</center>
 </div>
 <?php include 'elements/footer.php'; ?>
 </body>

@@ -13,7 +13,7 @@ $result=mysqli_query($con,"SELECT * FROM member_reg");
 
 <body>
 <div class="header">
-<div class="menu"> <div class="top">&nbsp;&nbsp;Home &gt; <a href="Admin.php">Admin Area</a> &gt;View Members</div>
+<div class="menu"> <div class="top">&nbsp;&nbsp;Home &gt; <!--<a href="Admin.php">Admin Area</a>-->View Members</div>
 <br /><br /><br /><br /><br /><br />
 <?php include 'elements/admin_menu.php'; ?>
 </div>

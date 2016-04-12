@@ -2,12 +2,14 @@
 include "elements/admin_check_session.php";
 if(!empty($_POST)){
 	@extract($_POST);
-	$result = mysqli_query($con,"SELECT * FROM blood_req WHERE blood_grp like '%$bg%' and req_city like '%$city%'  ORDER BY whn_req");
+	$result = mysqli_query($con,"SELECT * FROM blood_req WHERE blood_grp like '%$bg%' and req_city like '%$city%'  ORDER BY whn_req DESC");
 	//print_r($result); exit;
 	if(mysqli_num_rows($result) == 0)
 	{
 		$message = 'Search Not available for the criteria';
 	}
+}else{
+$result = mysqli_query($con,"SELECT * FROM blood_req  ORDER BY whn_req DESC");	
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -21,7 +23,7 @@ if(!empty($_POST)){
 
 <body>
 <div class="header">
-<div class="menu"> <div class="top">&nbsp;&nbsp;Home &gt; <a href="Admin.php">Admin Area</a> &gt;View Request</div>
+<div class="menu"> <div class="top">&nbsp;&nbsp;Home &gt;<!-- <a href="Admin.php">Admin Area</a>-->View Request</div>
 <br /><br /><br /><br /><br /><br />
 <?php include 'elements/admin_menu.php'; ?>
 </div>
@@ -76,10 +78,10 @@ if(!empty($_POST)){
   </table>
   </form>
     </center>
-    <?php if(!empty($_POST)&& mysqli_num_rows($result) > 0){ ?>
+    <?php //if(!empty($_POST)&& mysqli_num_rows($result) > 0){ ?>
     <center>
     <table style="width:80%; text-align:center;" border="1">
-    <tr ><td>Sno</td><td> Patient Name</td><td>Type of Disease</td><td>Docter Name</td><td>When Required</td><td>Contact Number</td><td>Blood Group</td><td>Quantity</td><td>Required City</td><td>Contact Person Name</td><td>Hospital/Address</td><td>Posted Date</td></tr>
+    <tr ><td>Sno</td><td> Patient Name</td><td>Type of Disease</td><td>Docter Name</td><td>When Required</td><td>Contact Number</td><td>Blood Group</td><td>Quantity</td><td>Required City</td><td>Contact Person Name</td><td>Hospital/Address</td><td>Posted Date</td><td>Status</td></tr>
     <?php $i =1;
           while($row=mysqli_fetch_array($result))
           {
@@ -96,6 +98,19 @@ if(!empty($_POST)){
 			  echo '<td>'.$row['cont_per_name'].'</td>' ;
               echo '<td>'.$row['hosp_add'].'</td>' ;
               echo '<td>'.$row['dt'] .'</td>';
+			  if($row['status'] == 0){ 
+       ?>
+            <td><form action="find_donor.php" method="post">
+            <input type="hidden" name="bg" value="<?php echo trim($row['blood_grp']); ?>"/>
+            <input type="hidden" name="city"  value="<?php echo trim($row['req_city']); ?>"/>
+            <input type="hidden" name="p_id"  value="<?php echo trim($row['id']); ?>"/>
+            <input type="submit" name="submit" value="Find Donor"/>
+            </form></td>
+     <?php
+			  }else if($row['status'] == 1){ echo '<td style="color:red;">No BG Matches</td>';
+			  }else if($row['status'] == 2){ echo '<td style="color:red;">Donor Available</td>';
+			  }else if($row['status'] == 3){ echo '<td style="color:red;">Donor Accept</td>';
+			  }else if($row['status'] == 4){ echo '<td style="color:red;">Donor Reject</td>';}
               echo '</tr>';
 			  $i++;
           }
@@ -103,7 +118,7 @@ if(!empty($_POST)){
     </table>
 	</center>
     <br/><br/>
-    <?php } ?>
+    <?php //} ?>
 </div>
 <?php include 'elements/footer.php';?>  
 </body>
