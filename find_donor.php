@@ -95,7 +95,7 @@ if(!empty($_POST)){
     </tr>
     <tr>
       <td width="155" height="31" class="field"></td>
-      <td width="33" class="field"><input type="submit" name="submit" value="SENT"/></td>
+      <td width="33" class="field"><input type="submit" name="submit" value="SEND"/></td>
       <td colspan="2"></td>
     </tr>
     </table>

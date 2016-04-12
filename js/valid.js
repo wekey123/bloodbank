@@ -62,7 +62,11 @@ function valid()
       alert("Please Enter PinCode");
 	  document.form1.textfield15.focus();
 	  return false;
-   }else if(document.form1.textfield5.value == ""){
+   }/*else if(document.form1.textfield16.value == ""){
+      alert("Please Enter Preference Timing");
+	  document.form1.textfield16.focus();
+	  return false;
+   }*/else if(document.form1.textfield5.value == ""){
       alert("Please Enter Mobile Number");
 	  document.form1.textfield5.focus();
 	  return false;

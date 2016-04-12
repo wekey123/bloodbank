@@ -13,7 +13,7 @@ $check2 = mysqli_num_rows($check);
 	}else{
 		$dob =  date('Y-m-d',strtotime($dob)); 
 		$ldd =  date('Y-m-d',strtotime($ldd)); 
-	 if(mysqli_query($con,"INSERT INTO donor_reg (uname, pass,name,age,gender,dob,weight,b_gp,ldd,state,city,pin_code,mob_num,e_mail,msg) VALUES('$uname','$pass','$name','$age','$gn','$dob','$weight','$bg','$ldd','$state','$city','$pc','$mob_num','$email','$msg')")){
+	 if(mysqli_query($con,"INSERT INTO donor_reg (uname, pass,name,age,gender,dob,weight,b_gp,ldd,pt,state,city,pin_code,mob_num,e_mail,msg) VALUES('$uname','$pass','$name','$age','$gn','$dob','$weight','$bg','$ldd','$pt','$state','$city','$pc','$mob_num','$email','$msg')")){
 	 header( 'Location: donor_login.php?error=1');exit;
 	 }else{
 		 $message = mysqli_error($con);
@@ -128,6 +128,12 @@ $check2 = mysqli_num_rows($check);
       <td class="field">:</td>
       <td><input type="text" name="ldd" id="textfield12" class="datepicker" value="<?php if(isset($ldd)) echo $ldd; ?>"/></td>
       <td>YY-MM-DD</td>
+    </tr>
+    <tr>
+      <td class="field">Preference Timing</td>
+      <td class="field">:</td>
+      <td><input type="text" name="pt" id="textfield16" value="<?php if(isset($pt)) echo $pt; ?>"/></td>
+      <td>HH : MM AM/PM</td>
     </tr>
     <tr>
       <td colspan="4" class="field">&nbsp;</td>

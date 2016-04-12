@@ -23,7 +23,7 @@ $result=mysqli_query($con,"SELECT * FROM donor_reg");
 	<h2 style="text-align:center;">Donor List</h2> <br/> <br/>
     <center>
     <table style="width:80%; text-align:center;" border="1">
-    <tr ><td>Sno</td><td> Name</td><td>Age</td><td>Gender</td><td>Blood Group</td><td>Last Donated Date</td><td>State</td><td>Location</td><td>Contact Number</td><td>E-Mail</td></tr>
+    <tr ><td>Sno</td><td> Name</td><td>Age</td><td>Gender</td><td>Blood Group</td><td>Last Donated Date</td><td>Preference Timing</td><td>State</td><td>Location</td><td>Contact Number</td><td>E-Mail</td></tr>
     <?php $i =1;
           while($row=mysqli_fetch_array($result))
           {
@@ -34,6 +34,7 @@ $result=mysqli_query($con,"SELECT * FROM donor_reg");
               echo '<td>'.$row['gender'] .'</td>';
               echo '<td>'.$row['b_gp'].'</td>' ;
               echo '<td>'.$row['ldd'].'</td>' ;
+			  if(!empty($row['pt'])){ echo '<td>'.$row['pt'].'</td>' ; }else{  echo "<td>Any Time</td>";  }
               echo '<td>'.$row['state'].'</td>' ;
               echo '<td>'.$row['city'] .'</td>';
               echo '<td>'.$row['mob_num'].'</td>' ;

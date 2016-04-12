@@ -96,6 +96,15 @@ include "elements/donor_check_session.php";
 	  ?></td>
     </tr>
     <tr>
+      <td class="field">Preference Timing</td>
+      <td class="field">:</td>
+      <td class="data">&nbsp;&nbsp;        <?php
+	   //echo ''.$row['pt'] ;  
+	   if(!empty($row['pt'])){ echo $row['pt']; }else{ echo "Any time"; }
+	  
+	  ?></td>
+    </tr>
+    <tr>
       <td class="field">&nbsp;</td>
       <td class="field">&nbsp;</td>
       <td class="data">&nbsp;</td>

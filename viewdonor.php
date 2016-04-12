@@ -65,6 +65,11 @@ if(isset($_GET['pid'])  && isset($_GET['id'])){
       <td width="33" class="field">:</td>
       <td colspan="2"><?php echo $row['e_mail']; ?></td>
     </tr>
+     <tr>
+       <td width="155" height="31" class="field">Preference Timing</td>
+      <td width="33" class="field">:</td>
+      <td colspan="2"><?php if(!empty($row['pt'])){ echo $row['pt']; }else{ echo "Any time"; } ?></td>
+    </tr>
     <tr>
       <td width="155" height="31" class="field">Donor City</td>
       <td width="33" class="field">:</td>

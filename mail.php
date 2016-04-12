@@ -11,8 +11,8 @@ if(!empty($_POST)){
 		$subject = 'DONOR AVAILABLE';
 	}
 	
-    if (mysqli_query($con, $sql)) {
-    	echo "Record updated successfully";
+        if (mysqli_query($con, $sql)) {
+    		echo "Record updated successfully";
 	} else {
 		echo "Error updating record: " . mysqli_error($con);
 	}
@@ -20,9 +20,10 @@ if(!empty($_POST)){
 	$headers = "From: admin@bloodbanksystem.com" . "\r\n" .
 	"CC: somebodyelse@example.com";
 	if(mail($to,$subject,$msg,$headers)){
-	header("Location: vw_requests.php?succes=1");
+	header("Location: vw_requests.php?succes=1"); exit;
 	}else{
-	echo "Message Sent Failure";	
+	echo "Message Sent Failure"; exit;	
 	}
+	ob_end_clean();
 }
 ?>
